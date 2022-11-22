@@ -1,4 +1,4 @@
-package CarDetails;
+package carDetails;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

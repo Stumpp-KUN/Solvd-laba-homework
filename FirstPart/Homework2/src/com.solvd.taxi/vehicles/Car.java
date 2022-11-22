@@ -1,7 +1,7 @@
-package Vehicles;
+package vehicles;
 
-import CarDetails.Engine;
-import CarDetails.Wheel;
+import carDetails.Engine;
+import carDetails.Wheel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

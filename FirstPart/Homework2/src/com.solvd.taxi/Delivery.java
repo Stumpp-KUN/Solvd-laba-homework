@@ -1,8 +1,5 @@
-import Order.OrderCenter;
-import Person.Customer;
-import Person.Person;
-import Vehicles.Car;
-import Vehicles.Vehicle;
+import order.OrderCenter;
+import person.Customer;
 
 import java.util.Scanner;
 
@@ -12,8 +9,9 @@ public class Delivery {
         System.out.println("enter bag weight");
         Scanner scanner=new Scanner(System.in);
         int k=scanner.nextInt();
-        OrderCenter orderCenter=new OrderCenter(k,customer.getStreetOfPointA(),customer.getStreetOfPointB(),customer);
-        orderCenter.makeAnOrder(orderCenter,customer);
+        OrderCenter orderCenter=new OrderCenter(k,customer);
+        orderCenter.takeOrder(orderCenter);
+
 
 
     }

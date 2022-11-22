@@ -1,10 +1,8 @@
-package Vehicles;
+package vehicles;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public abstract class Vehicle {
     private int maxSpeed;
     private int maxWeight;

@@ -1,9 +1,7 @@
-package Person;
+package person;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @Data
 public abstract class Person {
     private String firstName;

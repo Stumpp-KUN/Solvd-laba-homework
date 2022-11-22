@@ -1,7 +1,6 @@
-package Person;
+package person;
 
-import Order.OrderCenter;
-import Order.Package;
+import order.Package;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,23 +21,21 @@ public class Customer extends Person {
         streetOfPointB=streetB;
     }
 
-//    public void getOrder(Customer customer,int weight){
-//        OrderCenter orderCenter=new OrderCenter(weight,customer.getStreetOfPointA(),customer.getStreetOfPointB(),customer);
-//        orderCenter.makeAnOrder(orderCenter,customer);
-//    }
-
-    public void payMoney(int cost, Package parcel){
+    public boolean payMoney(int cost, Package parcel){
         if(money-cost>0) {
             money-=cost;
             getPackage(parcel);
             System.out.println(" Success ");
+            return true;
         }
         else System.out.println("Error, not enough money");
+        return false;
     }
 
-    private void getPackage(Package parcel){
+    private boolean getPackage(Package parcel){
         this.parcel=parcel;
         System.out.println("The package successfully delivered");
+        return true;
     }
 
     @Override

@@ -1,8 +1,8 @@
-package Person;
+package person;
 
-import Order.OrderCenter;
-import Order.Package;
-import Vehicles.Vehicle;
+import order.OrderCenter;
+import order.Package;
+import vehicles.Vehicle;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,11 +20,12 @@ public class Сourier extends Person{
     }
 
 
-    public void Deliver(Package parcel, Vehicle vehicle, OrderCenter orderCenter,int cost,Customer customer)  {
+    public boolean Deliver(Package parcel, Vehicle vehicle,int cost,Customer customer)  {
         vehicle.startDrive();
-        System.out.println("Driving from "+orderCenter.getStreetOfPointA()+" to "+orderCenter.getStreetOfPointB());
-        System.out.println("I have come to "+customer.getFirstName()+" on "+orderCenter.getStreetOfPointB());
+        System.out.println("Driving from "+customer.getStreetOfPointA()+" to "+customer.getStreetOfPointB());
+        System.out.println("I have come to "+customer.getFirstName()+" on "+customer.getStreetOfPointB());
             getMoney(cost,customer,parcel);
+            return true;
     }
 
     @Override
