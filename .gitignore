@@ -1,4 +1,3 @@
 pom.xml
-target/
-Solvd-laba-homework/
-.idea/
+/target
+/.idea
