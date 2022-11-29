@@ -1,10 +1,5 @@
-package Order;
+package order;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-@NoArgsConstructor
 public abstract class Package {
     private int price;
 

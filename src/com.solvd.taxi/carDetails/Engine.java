@@ -1,6 +1,5 @@
-package CarDetails;
+package carDetails;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

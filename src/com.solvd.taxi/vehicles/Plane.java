@@ -1,11 +1,11 @@
-package Vehicles;
+package vehicles;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Plane extends Vehicle{
+public class Plane extends Vehicle implements IFly{
 
     public Plane(String model) {
         setCost(1000);
@@ -15,8 +15,9 @@ public class Plane extends Vehicle{
     }
 
     @Override
-    public void startDrive() {
-        System.out.println("Flying");
+    public boolean startDrive() {
+        System.out.println("Driving");
+        return true;
     }
 
     @Override
@@ -24,4 +25,9 @@ public class Plane extends Vehicle{
         return getCost();
     }
 
+    @Override
+    public boolean fly() {
+        System.out.println("Flying");
+        return true;
+    }
 }

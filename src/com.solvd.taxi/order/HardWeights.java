@@ -1,12 +1,11 @@
-package Order;
+package order;
 
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class MediumWeights extends Package{
-
+public class HardWeights extends Package{
     @Override
     public int getCost(){
-        return 140;
+        return 200;
     }
 }

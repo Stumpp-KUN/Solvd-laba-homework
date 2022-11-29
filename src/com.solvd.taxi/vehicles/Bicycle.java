@@ -1,4 +1,4 @@
-package Vehicles;
+package vehicles;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +17,9 @@ public class Bicycle extends Vehicle{
     }
 
     @Override
-    public void startDrive() {
+    public boolean startDrive() {
         System.out.println("Moving on bicycle");
+        return true;
     }
 
     @Override
