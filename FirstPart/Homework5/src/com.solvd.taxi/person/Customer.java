@@ -5,6 +5,8 @@ import order.Package;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import order.SpeedOfDelivery;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -17,6 +19,7 @@ public final class Customer extends Person {
     private String streetOfPointB;
     private int weight;
     SpeedOfDelivery speedOfDelivery;
+    private final static Logger logger= LogManager.getRootLogger();
 
 
     public Customer(String firstName,String surname, String streetA,String streetB,int weight,SpeedOfDelivery speedOfDelivery){
@@ -37,7 +40,7 @@ public final class Customer extends Person {
         if(money-cost>0) {
             money-=cost;
             getPackage(parcel);
-            System.out.println(" Enough money ");
+            logger.info(" Enough money ");
             return true;
         }
         else throw new NotEnoughMoneyException("Not enough money");
@@ -45,7 +48,7 @@ public final class Customer extends Person {
 
     private boolean getPackage(Package parcel){
         this.parcel=parcel;
-        System.out.println("Customer has taken a package");
+        logger.info("Customer has taken a package");
         return true;
     }
 

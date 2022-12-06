@@ -3,6 +3,8 @@ package vehicles;
 import carDetails.Engine;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -11,6 +13,7 @@ import java.util.Objects;
 public class Truck extends Vehicle{
     private String model;
     private Engine engine;
+    private final static Logger logger= LogManager.getRootLogger();
 
     public Truck(String model, Engine engine) {
         this.model = model;
@@ -22,7 +25,7 @@ public class Truck extends Vehicle{
 
     @Override
     public boolean startDrive(){
-        System.out.println("Truck's engine has been started");
+        logger.info("Truck's engine has been started");
         return true;
     }
 

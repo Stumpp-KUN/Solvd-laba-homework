@@ -2,6 +2,8 @@ package person;
 
 import exception.NotEnoughMoneyException;
 import order.Package;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import vehicles.Vehicle;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +15,7 @@ import java.util.Objects;
 
 public final class Сourier extends Person{
     private int experience;
+    private final static Logger logger= LogManager.getRootLogger();
 
     public Сourier(int experience, String name, String surname, int age, Package parcel) {
         setFirstName(name);
@@ -24,8 +27,8 @@ public final class Сourier extends Person{
 
     public boolean Deliver(Package parcel, Vehicle vehicle,int cost,Customer customer) throws NotEnoughMoneyException {
         vehicle.startDrive();
-        System.out.println("Driving from "+customer.getStreetOfPointA()+" to "+customer.getStreetOfPointB());
-        System.out.println("I have come to "+customer.getFirstName()+" on "+customer.getStreetOfPointB());
+        logger.info("Driving from "+customer.getStreetOfPointA()+" to "+customer.getStreetOfPointB());
+        logger.info("I have come to "+customer.getFirstName()+" on "+customer.getStreetOfPointB());
             getMoney(cost,customer,parcel);
             return true;
     }

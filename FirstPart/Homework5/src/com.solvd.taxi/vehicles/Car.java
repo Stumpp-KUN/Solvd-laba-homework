@@ -4,6 +4,8 @@ import carDetails.Engine;
 import carDetails.Wheel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -12,6 +14,7 @@ import java.util.Objects;
 public class Car extends Vehicle{
     private Engine engine;
     private Wheel wheel;
+    private final static Logger logger= LogManager.getRootLogger();
 
     public Car(Engine engine, Wheel wheel, String model) {
         this.engine = engine;
@@ -24,7 +27,7 @@ public class Car extends Vehicle{
 
     @Override
     public boolean startDrive(){
-        System.out.println("Car's engine has been started");
+        logger.info("Car's engine has been started");
         return true;
     }
 

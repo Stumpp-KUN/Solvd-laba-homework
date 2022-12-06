@@ -21,7 +21,7 @@ public class Order{
     private final static Logger logger= LogManager.getRootLogger();
 
     static {
-        System.out.println("Order request successfuly came");
+        logger.info("Order request successfuly came");
     }
 
     public final boolean makeAnOrder(OrderCenter orderCenter){
@@ -52,7 +52,7 @@ public class Order{
             getInfo(orderCenter,vehicle);
             cost=checkCost(parcel,vehicle,orderCenter);
             makeDeliver(parcel, vehicle, cost, orderCenter.getCustomer());
-        } else System.out.println("error, invalid weight");
+        } else logger.warn("error, invalid weight");
         return true;
     }
 
@@ -69,8 +69,8 @@ public class Order{
     }
 
     private boolean getInfo(OrderCenter orderCenter,Vehicle vehicle){
-        System.out.println("Information about "+vehicle.getName()+": maxSpeed: " + vehicle.getMaxSpeed() + ", maxWeigth= " + vehicle.getMaxWeight() + ", model= " + vehicle.getModel());
-        System.out.println("Ur vehicle's avg speed: "+orderCenter.getCustomer().getSpeedOfDelivery().getSpeed().getAvgSpeed()+", but real speed of ur delivery's cars is: "+orderCenter.getCustomer().getSpeedOfDelivery().getSpeed().getRealSpeed());
+        logger.info("Information about "+vehicle.getName()+": maxSpeed: " + vehicle.getMaxSpeed() + ", maxWeigth= " + vehicle.getMaxWeight() + ", model= " + vehicle.getModel());
+        logger.info("Ur vehicle's avg speed: "+orderCenter.getCustomer().getSpeedOfDelivery().getSpeed().getAvgSpeed()+", but real speed of ur delivery's cars is: "+orderCenter.getCustomer().getSpeedOfDelivery().getSpeed().getRealSpeed());
         return true;
     }
 
@@ -85,7 +85,7 @@ public class Order{
             case SLOW -> {
                 return (int) (cost*SpeedOfDelivery.SLOW.getMULT());
             }
-            default -> System.out.println("Error");
+            default -> logger.warn("Error");
         }
         return 0;
     }
@@ -94,7 +94,7 @@ public class Order{
         int cost=0;
         cost += parcel.getCost();
         cost += vehicle.deliveryPay();
-        System.out.println("Final cost: " + checkSpeed(orderCenter,cost));
+        logger.info("Final cost: " + checkSpeed(orderCenter,cost));
         return checkSpeed(orderCenter,cost);
     }
 }

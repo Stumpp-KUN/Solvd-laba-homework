@@ -12,7 +12,7 @@ import person.*;
 
 import java.util.Scanner;
 
-public class Delivery {
+public class Delivery{
     static Customer customer=new Customer();
     static CustomerBuilder customerBuilder= new CustomerBuilder();
     static OrderCenter orderCenter;
@@ -21,22 +21,21 @@ public class Delivery {
 
     public static void main(String[] args)  {
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Enter ur: name");
+        logger.info("Enter ur: name");
         String name=scanner.next();
-        System.out.println(" Would u like to: 1-make an order, 2- check price for u package ");
+        logger.info(" Would u like to: 1-make an order, 2- check price for u package ");
 
         try {
             i = makeAChoise(scanner.nextInt());
-        } catch (WrongChoiseException e) {
-            e.printStackTrace();
-        }
-
-        try {
             if (getChoise(i, scanner, name) == false){}
+        }
+        catch (WrongChoiseException e) {
+            logger.warn(e.getMessage());
         }
         catch (WrongOptionNumberException | WrongWeightException e){
             logger.warn(e.getMessage());
         }
+
     }
 
     private static int makeAChoise(int x) throws WrongChoiseException {
@@ -47,14 +46,14 @@ public class Delivery {
 
     private static boolean getChoise(int i,Scanner scanner, String name) throws WrongOptionNumberException, WrongWeightException {
         if(i==1){
-            System.out.println("Enter ur surname,street of point A, street of point B, parcel weight");
+            logger.info("Enter ur surname,street of point A, street of point B, parcel weight");
             customer= customerBuilder.generateCustomer(name, scanner.next(), scanner.next(), scanner.next(), scanner.nextInt(),null);
-            System.out.println("Enter speed of delivery (fast,default,slow)");
+            logger.info("Enter speed of delivery (fast,default,slow)");
             SpeedOfDelivery speedOfDelivery= null;
             try {
                 speedOfDelivery = getSpeed(scanner.next());
                 customer.setSpeedOfDelivery(speedOfDelivery);
-                System.out.println(customer.toString());
+                logger.info(customer.toString());
                 orderCenter=new OrderCenter(customer);
                 orderCenter.takeOrder(orderCenter);
                 return true;
@@ -65,13 +64,13 @@ public class Delivery {
 
         }
         else if(i==2){
-            System.out.println("Enter weight of ur bag");
+            logger.info("Enter weight of ur bag");
             int j=scanner.nextInt();
             if(j<0) throw new WrongWeightException("Wrong weight, should be > 0");
             customer=customerBuilder.generateCustomer(name,j);
             orderCenter=new OrderCenter(customer);
             int cost=orderCenter.checkPrice(orderCenter);
-            System.out.println("Cost of delivery: "+cost);
+            logger.info("Cost of delivery: "+cost);
             return true;
         }
         else

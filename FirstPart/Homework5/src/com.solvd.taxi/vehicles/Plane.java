@@ -2,6 +2,8 @@ package vehicles;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Data
 @NoArgsConstructor
@@ -13,10 +15,11 @@ public class Plane extends Vehicle implements IFly{
         setMaxSpeed(300);
         setMaxWeight(1000);
     }
-
+    private final static Logger logger= LogManager.getRootLogger();
     @Override
     public boolean startDrive() {
-        System.out.println("Driving");
+
+        logger.info("Driving");
         return true;
     }
 

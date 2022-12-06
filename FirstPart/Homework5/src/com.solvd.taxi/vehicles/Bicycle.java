@@ -2,11 +2,14 @@ package vehicles;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Data
 @NoArgsConstructor
 public class Bicycle extends Vehicle{
     private boolean bucket;
+    private final static Logger logger= LogManager.getRootLogger();
 
     public Bicycle( String model, boolean bucket) {
         setCost(100);
@@ -18,7 +21,7 @@ public class Bicycle extends Vehicle{
 
     @Override
     public boolean startDrive() {
-        System.out.println("Moving on bicycle");
+        logger.info("Moving on bicycle");
         return true;
     }
 

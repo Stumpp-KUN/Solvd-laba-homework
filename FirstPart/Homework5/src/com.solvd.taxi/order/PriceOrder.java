@@ -2,6 +2,8 @@ package order;
 
 import carDetails.Engine;
 import carDetails.Wheel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import person.Customer;
 import vehicles.*;
 
@@ -10,9 +12,10 @@ public class PriceOrder {
     private Vehicle vehicle;
     private final Engine engine = new Engine("RT");
     private final Wheel wheel = new Wheel(1, "Spring");
+    private final static Logger logger= LogManager.getRootLogger();
 
     static {
-        System.out.println("PriceOrder request successfuly came");
+        logger.info("PriceOrder request successfuly came");
     }
 
     public int checkPrice(OrderCenter orderCenter) {
@@ -33,7 +36,7 @@ public class PriceOrder {
             parcel = new HardWeights();
             vehicle = new Plane("Boing");
             return checkCost(parcel,vehicle);
-        } else System.out.println("invalid weight");
+        } else logger.warn("invalid weight");
 
         return 0;
     }
