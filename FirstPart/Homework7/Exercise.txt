@@ -1,0 +1,1 @@
+updated maven. jar life-cycle
