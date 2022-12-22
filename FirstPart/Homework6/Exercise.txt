@@ -1,1 +1,1 @@
-Add 4 collections + own linked list
+Add 4 collections + own linked list.
