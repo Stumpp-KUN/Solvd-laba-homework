@@ -1,1 +1,1 @@
-Add log4j, some custom exceptions
+Add log4j, some custom exceptions.
