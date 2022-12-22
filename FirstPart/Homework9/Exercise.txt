@@ -1,0 +1,1 @@
+Lambda 5fun (java.util.function), lambda 3 own fun
