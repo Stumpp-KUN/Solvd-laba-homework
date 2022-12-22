@@ -1,1 +1,1 @@
-updated maven. jar life-cycle
+updated maven. jar life-cycle.
