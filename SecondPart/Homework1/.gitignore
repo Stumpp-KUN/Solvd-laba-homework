@@ -1,4 +1,6 @@
 .idea/
+logs/
+resources/
 Solvd-laba-homework/
 target/
 pom.xml
