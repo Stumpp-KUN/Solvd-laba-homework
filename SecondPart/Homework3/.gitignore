@@ -2,5 +2,5 @@
 logs/
 target/
 car.xml
-comService.xml
+comService.iml
 pom.xml
